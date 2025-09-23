@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover" />
+  <title>CatCascade: Cozy Merge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+  <script type="importmap">
+  {
+    "imports": {
+      "matter-js": "https://esm.sh/matter-js@0.19.0"
+    }
+  }
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">CatCascade</div>
+    <div class="stats">
+      <div class="stat"><span id="score">0</span> pts</div>
+      <div class="stat"><img class="icon" src="./ui_treat.png" alt=""> <span id="treats">0</span></div>
+      <div class="stat"><span id="streak">Day 0</span></div>
+      <button id="btn-settings" class="btn">☰</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="left-panel">
+      <div class="next-box">
+        <div class="label">Next</div>
+        <canvas id="nextCanvas" width="96" height="96"></canvas>
+      </div>
+      <div class="powerups">
+        <button id="pu-wild" class="btn btn-pill" title="Wild Cat merges with any">Wild</button>
+        <button id="pu-tornado" class="btn btn-pill" title="Reorganize the bin">Tornado</button>
+        <button id="pu-copy" class="btn btn-pill" title="Duplicate next merge result">Magic Copy</button>
+      </div>
+      <div class="progression">
+        <div class="label">Unlocked Cats</div>
+        <ul id="tierList" class="tier-list"></ul>
+      </div>
+      <div class="daily">
+        <button id="btn-daily" class="btn">Daily Reward</button>
+      </div>
+      <div class="sync">
+        <button id="btn-export" class="btn">Export Save</button>
+        <button id="btn-import" class="btn">Import Save</button>
+      </div>
+    </section>
+
+    <section class="game-panel">
+      <div id="bin" class="bin">
+        <canvas id="game" width="360" height="640"></canvas>
+        <div id="tapHint" class="hint bottom">Tap or click to release cats</div>
+      </div>
+      <div class="controls">
+        <button id="btn-restart" class="btn">Restart</button>
+        <button id="btn-tutorial" class="btn">Tutorial</button>
+      </div>
+    </section>
+
+    <section class="right-panel">
+      <div class="achievements">
+        <div class="label">Achievements</div>
+        <ul id="achList" class="ach-list"></ul>
+      </div>
+      <div class="events">
+        <div class="label">Seasonal Events</div>
+        <div id="eventInfo" class="event-card"></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="overlay" class="overlay hidden">
+    <div class="modal">
+      <h2 id="modalTitle">Title</h2>
+      <div id="modalBody" class="modal-body"></div>
+      <div class="modal-actions">
+        <button id="modalClose" class="btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./data.js"></script>
+  <script type="module" src="./storage.js"></script>
+  <script type="module" src="./ui.js"></script>
+  <script type="module" src="./tutorial.js"></script>
+  <script type="module" src="./main.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"4c6229722a6346bc8eb5cb0e5eae5d41","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
